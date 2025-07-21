@@ -10,6 +10,36 @@
   <div id="output" style="margin-top: 40px; font-size: 1.5rem;"></div>
 
   <script>
+    //  Get a reference to the output div
+    const output = document.getElementById("output");
+
+    // Function to show activity after a delay
+    function showActivity(time, activity) {
+      setTimeout(() => {
+        output.innerHTML += `<p>${activity}</p>`;
+      }, time);
+    }
+
+    // Start time accumulator (ms)
+    let currentTime = 0;
+
+    showActivity(currentTime += 1000, "⏰ 7:00 AM - Wake up and stretch");
+    showActivity(currentTime += 1500, "☕ 7:30 AM - Enjoy a hot chocolate");
+    showActivity(currentTime += 2000, "💻 8:00 AM - Code some JavaScript");
+    showActivity(currentTime += 2000, "🚴 10:00 AM - Go for a quick bike ride");
+    showActivity(currentTime += 1500, "🍝 12:00 PM - Eat lunch");
+    showActivity(currentTime += 1500, "📚 1:00 PM - Study some more programming");
+
+    // Surprise twist: random event with emoji/mood
+    const surpriseMoods = ["🎉", "😴", "😅", "💡", "🤯"];
+    // Randomly select a mood and delay for the surprise event
+    const randomMood = surpriseMoods[Math.floor(Math.random() * surpriseMoods.length)];
+    // Random delay between 1 and 4 seconds
+    const randomDelay = Math.floor(Math.random() * 3000) + 1000;
+    // Show the surprise event
+    showActivity(currentTime += randomDelay, `${randomMood} Surprise Event: Unexpected bug appears!`);
+    // Continue with the schedule after the surprise event
+    showActivity(currentTime += 2000, "🌙 9:00 PM - Wind down with a book and sleep 😴");
 
   </script>
 
